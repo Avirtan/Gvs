@@ -1,25 +1,61 @@
-import { AttributeType, Rect, Svg, SvgImg } from "gvs";
-import { Attributes } from "../../../dist/attributes";
-// const svgImg = await fetch("../public/rab.svg");
-// const textSvgImg = await svgImg.text();
+import {
+  Arcs,
+  Attributes,
+  ClosePath,
+  CubicCurve,
+  HorizontalLine,
+  Line,
+  LineCmd,
+  MoveTo,
+  Path,
+  Svg,
+  VerticalLine,
+} from "gvs";
 var svg = new Svg();
-var imgSvg = await new SvgImg().FromUrl("../public/rab.svg");
-var rect = new Rect(100, 200);
-// rect.setAttribute(Attributes.Fill, "red")?.setAttribute(Attributes.X, "50")?.setAttribute(Attributes.Y, "50");
-var attributes: AttributeType[] = [
-  {
-    name: Attributes.Fill,
-    value: "green",
-  },
-  {
-    name: Attributes.X,
-    value: "50",
-  },
-];
-rect.setAttributes(attributes);
-// var rect = new Rect(100, 100);
-svg.Element.appendChild(imgSvg.Element);
-svg.Element.appendChild(rect.Element);
-// var elemSvg = svg.createElement("test");
+//path
+//  <path d="M10 10 H90 V90 H10 L10 10" />
+var moveCmd = new MoveTo({
+  x: 10,
+  y: 10,
+});
+
+var lineCmd = new LineCmd({
+  x: 50,
+  y: 50,
+});
+
+var hLineCmd = new HorizontalLine({
+  x: 90,
+});
+
+var vLineCmd = new VerticalLine({
+  x: 90,
+});
+
+var hLineCmd2 = new HorizontalLine({
+  x: 10,
+});
+var cubicCurve = new CubicCurve({
+  x1: 20,
+  y1: 20,
+  x2: 40,
+  y2: 20,
+  x: 50,
+  y: 10,
+});
+
+var arc = new Arcs({
+  rx: 30,
+  ry: 50,
+  largeArcFlag: 0,
+  seepFlag: 0,
+  xAxiosRot: 1,
+  x: 162,
+  y: 162,
+});
+var zCmd = new ClosePath();
+var path = new Path([moveCmd, arc]); //lineCmd, hLineCmd, vLineCmd, hLineCmd2, zCmd]);
+path.setAttribute(Attributes.Fill, "transparent");
+path.setAttribute(Attributes.Stroke, "black");
+svg.addChildren([path]);
 document.body.appendChild(svg.Element);
-// document.querySelector("#app")?.appendChild(elemSvg);

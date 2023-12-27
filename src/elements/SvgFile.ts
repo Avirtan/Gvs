@@ -1,11 +1,11 @@
 import { BaseElement } from "./BaseElement";
 
-export class SvgImg extends BaseElement {
+export class SvgFile extends BaseElement {
   public constructor() {
     super();
   }
 
-  public FromString(svgString: string): SvgImg {
+  public FromString(svgString: string): this {
     var parser = new DOMParser();
     var doc = parser.parseFromString(svgString, "image/svg+xml");
     if (doc == null || doc.documentElement == null) {
@@ -16,8 +16,8 @@ export class SvgImg extends BaseElement {
     return this;
   }
 
-  public async FromUrl(path: string): Promise<SvgImg> {
-    const svgImg = await fetch("../public/rab.svg");
+  public async FromUrl(path: string): Promise<this> {
+    const svgImg = await fetch(path);
     const svgString = await svgImg.text();
     this.FromString(svgString);
     return this;

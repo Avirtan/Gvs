@@ -1,4 +1,5 @@
 export * from "./Svg";
 export * from "./BaseElement";
 export * from "./figures";
-export * from "./SvgImg";
+export * from "./SvgFile";
+export * from "./path";

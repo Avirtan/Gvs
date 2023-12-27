@@ -1,5 +1,5 @@
-import { Attributes } from "../attributes";
 import { LinkToLib, SvgNameSpace, XmlNameSpace } from "../const";
+import { Attributes } from "../types";
 import { BaseElement } from "./BaseElement";
 
 export class Svg extends BaseElement {

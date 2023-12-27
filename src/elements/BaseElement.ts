@@ -1,6 +1,5 @@
-import { Attributes } from "../attributes";
 import { SvgNameSpace } from "../const";
-import { AttributeType } from "../types";
+import { AttributeType, Attributes } from "../types";
 
 export abstract class BaseElement {
   protected element: Element | null;
@@ -37,5 +36,19 @@ export abstract class BaseElement {
 
   public setAttribute(name: Attributes, value: string, ns: string | null = null) {
     return this.setAttributeCustom(name, value, ns);
+  }
+
+  public addChild(element: BaseElement) {
+    if (this.element == null) {
+      console.error("сначала создайте элемент через createElement");
+      return;
+    }
+    this.element.appendChild(element.Element);
+  }
+
+  public addChildren(elements: BaseElement[]) {
+    for (var elem of elements) {
+      this.addChild(elem);
+    }
   }
 }

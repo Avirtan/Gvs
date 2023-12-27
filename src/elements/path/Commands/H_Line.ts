@@ -1,7 +1,7 @@
 import { HorizontalLineParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class HorizontalLine extends BaseCommand {
+export class H_Line extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.HorizontalLine;
   protected override params: HorizontalLineParams;
 

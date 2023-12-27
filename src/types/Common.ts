@@ -6,6 +6,6 @@ export interface AttributeType {
 }
 
 export interface Point {
-  x: string;
-  y: string;
+  x: number;
+  y: number;
 }

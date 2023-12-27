@@ -1,7 +1,7 @@
-import { HorizontalLineParams, PathCommandName, ValidateResponse } from "../../../types";
+import { PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class ClosePath extends BaseCommand {
+export class Z_ClosePath extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.ClosePath;
 
   public constructor() {

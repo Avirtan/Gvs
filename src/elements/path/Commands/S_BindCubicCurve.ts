@@ -1,7 +1,7 @@
 import { BindCubicCurveParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class BindCubicCurve extends BaseCommand {
+export class S_BindCubicCurve extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.BindCubicCurve;
   protected override params: BindCubicCurveParams;
 

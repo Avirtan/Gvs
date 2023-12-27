@@ -1,7 +1,7 @@
 import { PathCommandName, QuadraticCurveParams, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class QuadraticCurve extends BaseCommand {
+export class Q_Curve extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.QuadraticCurve;
   protected override params: QuadraticCurveParams;
 

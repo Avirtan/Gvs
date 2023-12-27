@@ -1,11 +1,12 @@
+import { Point } from "../Common";
+
 export interface MoveToParams {
   x: number;
   y: number;
 }
 
 export interface LineCmdParams {
-  x: number;
-  y: number;
+  points: Point[];
 }
 
 export interface HorizontalLineParams {

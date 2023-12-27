@@ -1,61 +1,53 @@
-import {
-  Arcs,
-  Attributes,
-  ClosePath,
-  CubicCurve,
-  HorizontalLine,
-  Line,
-  LineCmd,
-  MoveTo,
-  Path,
-  Svg,
-  VerticalLine,
-} from "gvs";
+import { Attributes, Path, Svg, getCommandsFromString } from "gvs";
 var svg = new Svg();
 //path
 //  <path d="M10 10 H90 V90 H10 L10 10" />
-var moveCmd = new MoveTo({
-  x: 10,
-  y: 10,
-});
 
-var lineCmd = new LineCmd({
-  x: 50,
-  y: 50,
-});
+var str =
+  "M 60.70955,-43 C 0.26276,1.442317 1.793,1.095455,  2.276409,0.226025 0.404045,0.65809 1.53162,1.520624 2.244118,-0.161449"; //"M 10,10 L 30, 30,40, 40,50 50, M2 10 Z";
+var commands = getCommandsFromString(str);
 
-var hLineCmd = new HorizontalLine({
-  x: 90,
-});
-
-var vLineCmd = new VerticalLine({
-  x: 90,
-});
-
-var hLineCmd2 = new HorizontalLine({
-  x: 10,
-});
-var cubicCurve = new CubicCurve({
-  x1: 20,
-  y1: 20,
-  x2: 40,
-  y2: 20,
-  x: 50,
-  y: 10,
-});
-
-var arc = new Arcs({
-  rx: 30,
-  ry: 50,
-  largeArcFlag: 0,
-  seepFlag: 0,
-  xAxiosRot: 1,
-  x: 162,
-  y: 162,
-});
-var zCmd = new ClosePath();
-var path = new Path([moveCmd, arc]); //lineCmd, hLineCmd, vLineCmd, hLineCmd2, zCmd]);
+var path = new Path(commands!); //lineCmd, hLineCmd, vLineCmd, hLineCmd2, zCmd]);
 path.setAttribute(Attributes.Fill, "transparent");
 path.setAttribute(Attributes.Stroke, "black");
 svg.addChildren([path]);
+
+// str = str.replaceAll(",", " ");
+// const removeSpaceBetween = /[a-zA-Z]\d/g;
+// str = str.replaceAll(removeSpaceBetween, (match) => {
+//   return match[0] + " " + match[1];
+// });
+// const removeSpace = /\s{2}/g;
+// str = str.replaceAll(removeSpace, (match) => {
+//   return match[0];
+// });
+// var commands = [];
+// var values = [];
+// var value = "";
+// console.log(str);
+// str += " ";
+// for (var char of str) {
+//   if (char.match(/[a-zA-Z]/)) {
+//     if (values.length > 0) {
+//       commands.push(values);
+//     }
+//     values = [];
+//     values.push(char);
+//     continue;
+//   }
+//   if (char.match(/[0-9]/)) {
+//     value += char;
+//   }
+//   if (char == " ") {
+//     if (value != "") {
+//       values.push(value);
+//     }
+//     value = "";
+//   }
+// }
+// if (values.length > 0) {
+//   commands.push(values);
+// }
+// console.log(commands);
+
 document.body.appendChild(svg.Element);

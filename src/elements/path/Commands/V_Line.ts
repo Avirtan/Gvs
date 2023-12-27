@@ -1,7 +1,7 @@
 import { VerticalLineParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class VerticalLine extends BaseCommand {
+export class V_Line extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.VerticalLine;
   protected override params: VerticalLineParams;
 

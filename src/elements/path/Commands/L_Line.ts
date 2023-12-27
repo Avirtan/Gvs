@@ -1,7 +1,7 @@
 import { LineCmdParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class LineCmd extends BaseCommand {
+export class L_Line extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.Line;
   protected override params: LineCmdParams;
 
@@ -22,7 +22,12 @@ export class LineCmd extends BaseCommand {
   }
 
   public override getCommandString(): string {
-    return `${this.prefix}${this.params.x} ${this.params.y}`;
+    var str: string = "";
+    for (var point of this.params.points) {
+      str += `${point.x} ${point.y} `;
+    }
+    str = str.substring(0, str.length - 1);
+    return `${this.prefix}${str}`;
   }
 
   public override setObjectParam(param: LineCmdParams): void {

@@ -8,7 +8,7 @@ export class Svg extends BaseElement {
     this.element = null;
     super.createElement("svg");
     this.setAttribute(Attributes.Xmlns, SvgNameSpace, XmlNameSpace);
-    this.setAttributeCustom("xmlns:xling", XmlNameSpace, XmlNameSpace);
+    this.setAttributeCustom("xmlns:xlink", XmlNameSpace, XmlNameSpace);
     this.setAttributeCustom("xmlns:gvs", LinkToLib, XmlNameSpace);
   }
 }

@@ -1,7 +1,7 @@
 import { MoveToParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class MoveTo extends BaseCommand {
+export class M_MoveTo extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.MoveTo;
   protected override params: MoveToParams;
 

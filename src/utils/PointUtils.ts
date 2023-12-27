@@ -15,8 +15,8 @@ export function StringToPoints(str: string): Point[] {
   for (let point of str.split(",")) {
     arrPoint = point.split(" ").filter((value) => value != "");
     points.push({
-      x: arrPoint[0],
-      y: arrPoint[1],
+      x: parseFloat(arrPoint[0]),
+      y: parseFloat(arrPoint[1]),
     });
   }
   return points;

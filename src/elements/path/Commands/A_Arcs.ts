@@ -1,7 +1,7 @@
 import { ArcsParams, BindCubicCurveParams, PathCommandName, ValidateResponse } from "../../../types";
 import { BaseCommand } from "./BaseCommand";
 
-export class Arcs extends BaseCommand {
+export class A_Arcs extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.Arcs;
   protected override params: ArcsParams;
 

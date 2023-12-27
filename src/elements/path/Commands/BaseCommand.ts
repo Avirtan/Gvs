@@ -18,6 +18,8 @@ export abstract class BaseCommand {
 
   public setObjectParam(param: any) {}
 
+  public setArrayParam(params: []) {}
+
   public getCommandString(): string {
     return "";
   }

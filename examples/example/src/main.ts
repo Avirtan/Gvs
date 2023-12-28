@@ -1,16 +1,23 @@
-import { Attributes, Path, Svg, getCommandsFromString } from "gvs";
+import { Attributes, MatrixSVG, Path, Rect, Svg, getCommandsFromString } from "gvs";
 var svg = new Svg();
 //path
 //  <path d="M10 10 H90 V90 H10 L10 10" />
+svg.setAttribute(Attributes.Width, "1000");
+svg.setAttribute(Attributes.Height, "1000");
+// svg.setAttribute(Attributes.ViewBox, "0 0 200 200");
+var rect = new Rect(50, 50);
+svg.addChild(rect);
+// svg.setAttribute(Attributes.ViewBox, "-70 -50 100 100");
+var matrix = new MatrixSVG();
+rect.setAttribute(Attributes.X, "0")?.setAttribute(Attributes.Y, "0");
+rect.setAttribute(Attributes.Transform, matrix.rotate(45, { x: 5, y: 5 }).getStringMatrixExpression());
+var str = "M 10,10,20,30, 50,50 z"; //"M 10,10 L 30, 30,40, 40,50 50, M2 10 Z";
+// var commands = getCommandsFromString(str);
 
-var str =
-  "M 60.70955,-43 C 0.26276,1.442317 1.793,1.095455,  2.276409,0.226025 0.404045,0.65809 1.53162,1.520624 2.244118,-0.161449"; //"M 10,10 L 30, 30,40, 40,50 50, M2 10 Z";
-var commands = getCommandsFromString(str);
-
-var path = new Path(commands!); //lineCmd, hLineCmd, vLineCmd, hLineCmd2, zCmd]);
-path.setAttribute(Attributes.Fill, "transparent");
-path.setAttribute(Attributes.Stroke, "black");
-svg.addChildren([path]);
+// var path = new Path(commands!); //lineCmd, hLineCmd, vLineCmd, hLineCmd2, zCmd]);
+// path.setAttribute(Attributes.Fill, "transparent");
+// path.setAttribute(Attributes.Stroke, "black");
+// svg.addChildren([path]);
 
 // str = str.replaceAll(",", " ");
 // const removeSpaceBetween = /[a-zA-Z]\d/g;

@@ -28,7 +28,6 @@ export class Path extends BaseElement {
     }
     var strCommand: string = "";
     for (let cmd of this.Commands) {
-      console.log(cmd.getParams());
       strCommand += `${cmd.getCommandString()},`;
     }
     strCommand = strCommand.substring(0, strCommand.length - 1);

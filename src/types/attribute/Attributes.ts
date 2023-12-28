@@ -21,4 +21,6 @@ export enum Attributes {
   Fill = "fill",
   Stroke = "stroke",
   StrokeWidth = "stroke-width",
+  Transform = "transform",
+  ViewBox = "viewBox",
 }

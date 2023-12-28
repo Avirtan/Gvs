@@ -5,6 +5,7 @@ export enum PathCommandName {
   Line = "L",
   LineLocal = "l",
   ClosePath = "Z",
+  ClosePathLocal = "z",
   CubicCurve = "C",
   CubicCurveLocal = "c",
   BindCubicCurve = "S",

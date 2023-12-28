@@ -4,8 +4,9 @@ import { BaseCommand } from "./BaseCommand";
 export class Z_ClosePath extends BaseCommand {
   protected override prefix: PathCommandName = PathCommandName.ClosePath;
 
-  public constructor() {
+  public constructor(isLocal: boolean = false) {
     super();
+    this.prefix = isLocal ? PathCommandName.ClosePathLocal : this.prefix;
   }
 
   public override validate(): ValidateResponse {

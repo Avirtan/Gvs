@@ -1,6 +1,6 @@
 import { Attributes, ValidateResponse } from "../../types";
-import { FigureNames } from "../../types/FigureNames";
-import { BaseElement } from "../BaseElement";
+import { ElementNames } from "../../types/FigureNames";
+import { BaseElement } from "../impl/BaseElement";
 import { BaseCommand } from "./Commands";
 
 export class Path extends BaseElement {
@@ -14,8 +14,8 @@ export class Path extends BaseElement {
 
   constructor(commands: BaseCommand[], isDebug: boolean = false) {
     super();
-    this.element = null;
-    super.createElement(FigureNames.Path);
+    this._element = null;
+    super.createElement(ElementNames.Path);
     this._isDebug = isDebug;
     this.setCommands(commands);
   }

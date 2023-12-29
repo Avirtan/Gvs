@@ -1,4 +1,4 @@
-export enum FigureNames {
+export enum ElementNames {
   Rect = "rect",
   Circle = "circle",
   Ellipse = "ellipse",
@@ -6,4 +6,5 @@ export enum FigureNames {
   Polyline = "polyline",
   Polygone = "polygone",
   Path = "path",
+  Group = "g",
 }

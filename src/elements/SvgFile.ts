@@ -1,4 +1,4 @@
-import { BaseElement } from "./BaseElement";
+import { BaseElement } from "./impl/BaseElement";
 
 export class SvgFile extends BaseElement {
   public constructor() {
@@ -12,7 +12,7 @@ export class SvgFile extends BaseElement {
       console.error("ошибка при парсе текста svg");
       return this;
     }
-    this.element = doc.documentElement;
+    this._element = doc.documentElement;
     return this;
   }
 

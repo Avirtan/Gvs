@@ -1,15 +1,41 @@
-import { Attributes, FigureNames } from "../../types";
-import { BaseElement } from "../BaseElement";
+import { LineComponent } from "../../components/figures/LineComponent";
+import { Attributes, ElementNames } from "../../types";
+import { BaseElement } from "../impl/BaseElement";
 
 export class Line extends BaseElement {
-  constructor(x1: number, y1: number, x2: number, y2: number, colorStroke: string = "red") {
+  private _lineComponent: LineComponent;
+
+  constructor(x1: number, y1: number, x2: number, y2: number, colorStroke: string = "black") {
     super();
-    this.element = null;
-    super.createElement(FigureNames.Line);
-    super.setAttribute(Attributes.X1, `${x1}`);
-    super.setAttribute(Attributes.Y1, `${y1}`);
-    super.setAttribute(Attributes.X2, `${x2}`);
-    super.setAttribute(Attributes.Y2, `${y2}`);
+    this._element = null;
+    super.createElement(ElementNames.Line);
+    this._lineComponent = new LineComponent();
+    this._lineComponent.setX1(x1);
+    this._lineComponent.setY1(y1);
+    this._lineComponent.setX2(x2);
+    this._lineComponent.setY2(y2);
+    this._components.push(this._lineComponent);
     super.setAttribute(Attributes.Stroke, colorStroke);
+    this.setFieldsToAttribute();
+  }
+
+  public setX1(x: number): void {
+    this._lineComponent.setX1(x);
+    this.setFieldToAttributeByComponent(this._lineComponent);
+  }
+
+  public setY1(y: number): void {
+    this._lineComponent.setY1(y);
+    this.setFieldToAttributeByComponent(this._lineComponent);
+  }
+
+  public setX2(x: number): void {
+    this._lineComponent.setX2(x);
+    this.setFieldToAttributeByComponent(this._lineComponent);
+  }
+
+  public setY2(y: number): void {
+    this._lineComponent.setY2(y);
+    this.setFieldToAttributeByComponent(this._lineComponent);
   }
 }
